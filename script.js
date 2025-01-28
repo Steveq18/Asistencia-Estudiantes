@@ -6,14 +6,14 @@ const resumenContainer = document.getElementById('resumenAsistencia');
 
 let estudiantes = JSON.parse(localStorage.getItem('estudiantes')) || [];
 
-// Guardar en el localStorage
+
 function guardarLocal() {
     localStorage.setItem('estudiantes', JSON.stringify(estudiantes));
 }
 
-// Mostrar la lista de estudiantes
+
 function mostrarLista() {
-    listaEstudiantes.innerHTML = ''; // Limpiar la tabla antes de actualizar
+    listaEstudiantes.innerHTML = ''; 
     estudiantes.forEach((estudiante, index) => {
         const fila = document.createElement('tr');
 
@@ -33,7 +33,6 @@ function mostrarLista() {
     });
 }
 
-// Agregar un estudiante
 function agregarEstudiante() {
     const nombre = nombreInput.value.trim();
     if (nombre === '') {
@@ -46,7 +45,7 @@ function agregarEstudiante() {
     nombreInput.value = '';
 }
 
-// Marcar asistencia
+
 function marcarAsistencia(index, estado) {
     estudiantes[index].estado = estado;
     estudiantes[index].fecha = new Date().toLocaleDateString();
@@ -54,14 +53,14 @@ function marcarAsistencia(index, estado) {
     mostrarLista();
 }
 
-// Eliminar estudiante
+
 function eliminarEstudiante(index) {
     estudiantes.splice(index, 1);
     guardarLocal();
     mostrarLista();
 }
 
-// Mostrar resumen
+
 function mostrarResumen() {
     resumenContainer.innerHTML = '';
     estudiantes.forEach((estudiante) => {
@@ -72,9 +71,8 @@ function mostrarResumen() {
     resumenContainer.setAttribute('aria-live', 'polite');
 }
 
-// Eventos iniciales
 agregarBtn.addEventListener('click', agregarEstudiante);
 mostrarResumenBtn.addEventListener('click', mostrarResumen);
 
-// Mostrar la lista al cargar la página
+
 mostrarLista();
