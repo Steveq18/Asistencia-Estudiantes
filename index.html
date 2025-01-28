@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asistencia de Estudiantes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="container">
+        <header>
+            <h1>Asistencia de Estudiantes</h1>
+        </header>
+
+        <section class="form-container" aria-labelledby="form-section">
+            <input 
+                type="text" 
+                id="nombreEstudiante" 
+                placeholder="Nombre del estudiante" 
+                aria-label="Campo para ingresar el nombre del estudiante"
+            >
+            <button id="agregarEstudiante" aria-label="Agregar estudiante a la lista">Agregar Estudiante</button>
+        </section>
+
+        <section aria-labelledby="asistencia-lista">
+            <h2 id="asistencia-lista">Lista de Asistencia</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Estudiante</th>
+                        <th>Asistencia</th>
+                        <th>Fecha</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="listaEstudiantes"></tbody>
+            </table>
+        </section>
+
+        <button id="mostrarResumen" class="resumen-button" aria-label="Mostrar el resumen de asistencia">Mostrar Resumen</button>
+
+        <section id="resumenAsistencia" class="resumen-container" aria-live="polite"></section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
